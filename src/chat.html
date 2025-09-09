@@ -9,18 +9,18 @@
     <div id="chatwindow">
         <h1>Chat</h1>
         <div id="chats">
-            <div class="from-self message">
+            <div class="from-self message template">
                 <h3 class="message-author">you</h3>
                 <p class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin semper ligula vel volutpat hendrerit. Sed vehicula risus eget nisl sagittis, ac imperdiet erat cursus. Ut. </p>
             </div>
-            <div class="from-other message">
+            <div class="from-other message template">
                 <h3 class="message-author">username</h3>
                 <p class="message-content">mhm</p>
             </div>
-            <form action="" id="send">
-                <input type="text" id="inp_message" placeholder="message..." ><input type="submit" value="Send">
-            </form>
         </div>
+        <form action="" id="send">
+            <input type="text" id="inp_message" placeholder="message..." ><input type="submit" value="Send">
+        </form>
     </div>
 </body>
 </html>
@@ -36,6 +36,9 @@
         height: 100%;
         background-color: rgb(17, 17, 17);
     }
+    .template{
+        <!-- display: none; -->
+    }
     #chatwindow{
         background-color: rgb(12, 12, 12);
         border: 3px rgb(43, 43, 43) solid;
@@ -49,6 +52,7 @@
         text-align:  center;
     }
     .message{
+        cursor: pointer;
         background-color: rgb(141, 45, 45);
         max-width: 55%;
         min-width: 15%;
@@ -56,6 +60,21 @@
         padding: 2px;
         border-radius: 5px;
         margin-bottom: 5px;
+        transition: .3s;
+    }
+    .message:hover{
+        cursor: pointer;
+        filter: brightness(.9);
+        transition: .3s;
+    }
+    .message.sending{
+        filter: brightness(.8) blur(1px);
+        transition: .3s;
+    }
+    .message.sending:hover{
+        filter: brightness(.8);
+        cursor: wait !important;
+        transition: .3s;
     }
     .message-author{
         text-align: left;
@@ -100,3 +119,28 @@
         font-style: normal;
     }
 </style>
+
+<script>
+// Templates
+let me_template = document.querySelector("#chats>.from-self.message.template");
+let other_template = document.querySelector("#chats>.from-other.message.template");
+
+// form handler
+let form = document.getElementById("send");
+let msg = document.getElementById("inp_message");
+
+form.addEventListener("submit",e=>{
+    // prevent form from forming?
+    e.preventDefault();
+
+    // get message and reset it
+    let _msg = msg.value;
+    msg.value = "";
+
+    // make new chat bubble
+    let bubble = me_template.cloneNode(true);
+    bubble.classList.add("sending")
+
+    document.querySelector("#chats").appendChild(bubble)
+})
+</script>
