@@ -38,7 +38,7 @@
         background-color: rgb(17, 17, 17);
     }
     .template{
-        <!-- display: none; -->
+        display: none;
     }
     #chatwindow{
         background-color: rgb(12, 12, 12);
@@ -134,7 +134,48 @@ document.addEventListener("DOMContentLoaded",e=>{
     // socket handling ig?
     const socket = io();
 
+    socket.on('connect', () => {
+        console.log('Connected to server');
+    });
+
+    socket.on('disconnect', () => {
+        console.log('Disconnected from server');
+    });
+
+    socket.on('connect_error', (error) => {
+        console.error('Connection error:', error);
+    });
+    socket.on("response",(response)=>{
+        console.log(response)
+        let type = response.type
+        let id = response.id
+
+        let _id = document.querySelector(`#msg_id_`+id)
+
+        if (type == "error"){
+            _id.remove()
+        } 
+        if (type == "success"){
+            _id.classList.remove("sending")
+        }
+    })
+    socket.on("message",(message)=>{
+        console.log(message)
+        let bubble = other_template.cloneNode(true)
+        bubble.querySelector(".message-author").innerText = message.id
+        bubble.querySelector(".message-content").innerText = message.message
+
+        bubble.classList.remove("template")
+
+        console.log(bubble.innerText)
+
+        document.querySelector("#chats").appendChild(bubble)
+    })
+
+    let ids = 0
     form.addEventListener("submit",async e=>{
+        ids += 1
+        let _id = ids // local id
         // prevent form from forming?
         e.preventDefault();
 
@@ -145,10 +186,15 @@ document.addEventListener("DOMContentLoaded",e=>{
         // make new chat bubble lol
         let bubble = me_template.cloneNode(true);
         bubble.classList.add("sending")
+        bubble.classList.remove("template")
+        bubble.id = "msg_id_"+_id
+
+        bubble.querySelector(".message-content").innerText = _msg
 
         // now lets try it
-        socket.emit("message",_msg)
+        socket.emit("message",{message:_msg,local_id:_id})
 
+        // add it ig
         document.querySelector("#chats").appendChild(bubble)
     })
 })

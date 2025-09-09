@@ -14,3 +14,8 @@
 ***Data***: 9/9/25
 
 ***What I did***: improved css massively
+
+### Devblog 4
+***Data***: 9/9/25
+
+***What I did***: Decided to go with Socket.io, i will start testing it lol
