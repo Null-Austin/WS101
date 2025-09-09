@@ -4,7 +4,7 @@
   "description": "A code w/ me, lol. im learning web sockets, this will provide some test code with devblogs\r hehe, devblogs found [here](devblogs.md). lol",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js"
   },
   "repository": {
     "type": "git",
