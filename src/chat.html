@@ -17,6 +17,9 @@
                 <h3 class="message-author">username</h3>
                 <p class="message-content">mhm</p>
             </div>
+            <form action="" id="send">
+                <input type="text" id="inp_message" placeholder="message..." ><input type="submit" value="Send">
+            </form>
         </div>
     </div>
 </body>
@@ -75,6 +78,18 @@
     }
     .message.from-other > .message-content{
         text-align: right;
+    }
+
+    /* sending thing */
+    form#send{
+        text-align: center;
+    }
+    form#send>input{
+        margin-inline: 5px;
+        padding: 3px;
+        background:none;
+        border: none;
+        background-color: rgb(53, 53, 53);
     }
 
     /* Fonts */
