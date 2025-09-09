@@ -129,7 +129,7 @@ let other_template = document.querySelector("#chats>.from-other.message.template
 let form = document.getElementById("send");
 let msg = document.getElementById("inp_message");
 
-form.addEventListener("submit",e=>{
+form.addEventListener("submit",async e=>{
     // prevent form from forming?
     e.preventDefault();
 
@@ -137,10 +137,12 @@ form.addEventListener("submit",e=>{
     let _msg = msg.value;
     msg.value = "";
 
-    // make new chat bubble
+    // make new chat bubble lol
     let bubble = me_template.cloneNode(true);
     bubble.classList.add("sending")
 
     document.querySelector("#chats").appendChild(bubble)
+
+    
 })
 </script>

@@ -9,3 +9,8 @@
 ***Data***: 9/9/25
 
 ***What I did***: Set up a basic chat website, wont change far after this
+
+### Devblog 3
+***Data***: 9/9/25
+
+***What I did***: improved css massively
