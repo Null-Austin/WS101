@@ -1,1 +1,87 @@
-UwU
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Websocket chat test</title>
+</head>
+<body>
+    <div id="chatwindow">
+        <h1>Chat</h1>
+        <div id="chats">
+            <div class="from-self message">
+                <h3 class="message-author">you</h3>
+                <p class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin semper ligula vel volutpat hendrerit. Sed vehicula risus eget nisl sagittis, ac imperdiet erat cursus. Ut. </p>
+            </div>
+            <div class="from-other message">
+                <h3 class="message-author">username</h3>
+                <p class="message-content">mhm</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+    *{
+        color:white;
+    }
+    body,html{
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(17, 17, 17);
+    }
+    #chatwindow{
+        background-color: rgb(12, 12, 12);
+        border: 3px rgb(43, 43, 43) solid;
+        border-radius: 5px;
+
+        padding: 6px;
+        width: 88%;
+        margin: 0 auto;
+    }
+    #chatwindow > h1{
+        text-align:  center;
+    }
+    .message{
+        background-color: rgb(141, 45, 45);
+        max-width: 55%;
+        min-width: 15%;
+        width: max-content;
+        padding: 2px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+    .message-author{
+        text-align: left;
+        text-transform: uppercase;
+        padding-inline: 10px;
+    }
+    .message-content{
+        padding-inline: 10px;
+    }
+
+    /* time for editing if its from another person */
+    .message.from-other{
+        margin-left: auto;
+        margin-right: 0;
+
+        background-color: rgb(44, 46, 182);
+    }
+    .message.from-other > .message-author{
+        text-align: right;
+    }
+    .message.from-other > .message-content{
+        text-align: right;
+    }
+
+    /* Fonts */
+    .ms, body{
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+    }
+</style>
