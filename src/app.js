@@ -19,6 +19,11 @@ io.on("connection",(socket)=>{
     socket.on("disconnect",()=>{
         console.log("connection left :( ",_id)
     })
+
+    socket.on("message",(msg)=>{
+        if (!msg) return;
+        console.log("user ",_id, " said ",msg)
+    })
 })
 app.get("/",(req,res,next)=>{
     res.redirect("/chat");

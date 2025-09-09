@@ -146,6 +146,9 @@ document.addEventListener("DOMContentLoaded",e=>{
         let bubble = me_template.cloneNode(true);
         bubble.classList.add("sending")
 
+        // now lets try it
+        socket.emit("message",_msg)
+
         document.querySelector("#chats").appendChild(bubble)
     })
 })
