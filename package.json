@@ -1,0 +1,23 @@
+{
+  "name": "ws101",
+  "version": "1.0.0",
+  "description": "A code w/ me, lol. im learning web sockets, this will provide some test code with devblogs\r hehe, devblogs found [here](devblogs.md). lol",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Null-Austin/WS101.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Null-Austin/WS101/issues"
+  },
+  "homepage": "https://github.com/Null-Austin/WS101#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
