@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Websocket chat test</title>
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
     <div id="chatwindow">
@@ -121,28 +122,31 @@
 </style>
 
 <script>
-// Templates
-let me_template = document.querySelector("#chats>.from-self.message.template");
-let other_template = document.querySelector("#chats>.from-other.message.template");
+document.addEventListener("DOMContentLoaded",e=>{
+    // Templates
+    let me_template = document.querySelector("#chats>.from-self.message.template");
+    let other_template = document.querySelector("#chats>.from-other.message.template");
 
-// form handler
-let form = document.getElementById("send");
-let msg = document.getElementById("inp_message");
+    // form handler
+    let form = document.getElementById("send");
+    let msg = document.getElementById("inp_message");
 
-form.addEventListener("submit",async e=>{
-    // prevent form from forming?
-    e.preventDefault();
+    // socket handling ig?
+    const socket = io();
 
-    // get message and reset it
-    let _msg = msg.value;
-    msg.value = "";
+    form.addEventListener("submit",async e=>{
+        // prevent form from forming?
+        e.preventDefault();
 
-    // make new chat bubble lol
-    let bubble = me_template.cloneNode(true);
-    bubble.classList.add("sending")
+        // get message and reset it
+        let _msg = msg.value;
+        msg.value = "";
 
-    document.querySelector("#chats").appendChild(bubble)
+        // make new chat bubble lol
+        let bubble = me_template.cloneNode(true);
+        bubble.classList.add("sending")
 
-    
+        document.querySelector("#chats").appendChild(bubble)
+    })
 })
 </script>
