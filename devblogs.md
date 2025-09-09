@@ -18,4 +18,9 @@
 ### Devblog 4
 ***Data***: 9/9/25
 
-***What I did***: Decided to go with Socket.io, i will start testing it lol
+***What I did***: Decided to go with Socket.io, i will start testing it lol.
+
+### Devblog 5
+***Data***: 9/9/25
+
+***What I did***: Added a coolio ui!!!!! and made it work ig lol
